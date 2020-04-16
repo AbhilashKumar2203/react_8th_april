@@ -55,6 +55,18 @@
   color: white;
 }
 
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
 .App-link {
   color: #61dafb;
 }

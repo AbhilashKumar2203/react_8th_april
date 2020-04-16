@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {FirstComponent} from './component/firstComponent';
 import {ButtonComponent} from './component/buttonComponent';
 import {ButtonListComponent} from './component/buttonListComponent';
+import CourseList from './component/courseList';
 
 ReactDOM.render(
     <ButtonListComponent />,
