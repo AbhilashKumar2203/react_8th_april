@@ -28,9 +28,30 @@ export class ButtonListComponent extends React.Component{
         })
 
     }
+    componentWillMount(){
+        console.log("Compnt will mount is called");
+    }
+
+    componentDidMount(){
+        console.log("Did mount is called");
+    }
 
     shouldComponentUpdate(nextProps,nextState){
+        console.log("Should component update is called");
         return this.state.buttonArray.length != nextState.buttonArray.length;
+
+    }
+    componentWillUpdate(nextProps,nextState){
+        this.setState(
+            {
+                buttonArray:["a","b"]
+            }
+        )
+        console.log("Component will update is called");
+
+    }
+
+    componentDidUpdate(){
 
     }
     render(){        

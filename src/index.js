@@ -7,9 +7,10 @@ import {FirstComponent} from './component/firstComponent';
 import {ButtonComponent} from './component/buttonComponent';
 import {ButtonListComponent} from './component/buttonListComponent';
 import CourseList from './component/courseList';
+import AllPosts from './component/allPosts';
 
 ReactDOM.render(
-    <ButtonListComponent />,
+    <App />,
   document.getElementById('root')
 );
 
