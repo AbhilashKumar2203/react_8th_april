@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{Suspense}from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
 import AllPosts from './component/allPosts';
 import { ButtonListComponent } from './component/buttonListComponent';
 import CourseList from './component/courseList';
-import FirstComponent from './component/firstComponent';
+//import FirstComponent from './component/firstComponent';
+const FirstComponent = React.lazy(()=>(import('./component/firstComponent')));
 
 function App() {
   return (
@@ -26,8 +27,13 @@ function App() {
         </li>
         </ul>
 <Switch>
-<       Route exact path="/posts/:id" component={AllPosts}/>
-        <Route path = "/basic" component={FirstComponent}/>
+        <Route exact path="/posts/" component={AllPosts}/>
+        <Route path = "/basic" render={(props)=>(
+          <Suspense fallback={<div>Loading...</div>}>
+             <FirstComponent textValue={"This value is coming from APP as props"} {...props}/>
+        </Suspense>
+        )}
+      />
         <Route path = "/buttons" component={ButtonListComponent}/>
         <Route path = "/courses/" component = {CourseList}/>
        

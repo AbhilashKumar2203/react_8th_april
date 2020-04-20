@@ -8,9 +8,10 @@ import {ButtonComponent} from './component/buttonComponent';
 import {ButtonListComponent} from './component/buttonListComponent';
 import CourseList from './component/courseList';
 import AllPosts from './component/allPosts';
+import {HooksHandsOn} from './component/hooksHandsOn';
 
 ReactDOM.render(
-    <App />,
+    <HooksHandsOn />,
   document.getElementById('root')
 );
 

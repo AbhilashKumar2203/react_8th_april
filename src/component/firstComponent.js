@@ -4,7 +4,7 @@ import React from 'react';
 export default class FirstComponent extends React.Component{
     render(){
         return <div>
-                    <h1>My first comonent using JSX</h1>
+                    <h1>{this.props.textValue}}</h1>
                    
                     
                 </div>
