@@ -5,13 +5,29 @@ import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
 import AllPosts from './component/allPosts';
 import { ButtonListComponent } from './component/buttonListComponent';
 import CourseList from './component/courseList';
+import {useSelector,useDispatch} from 'react-redux';
+import { increment,decrement,loggedIn, updateName} from './actions/incrementDecrementAction';
 //import FirstComponent from './component/firstComponent';
 const FirstComponent = React.lazy(()=>(import('./component/firstComponent')));
 
 function App() {
+  let counter = useSelector(state=>{return state.counter});
+  let loggedInValue = useSelector(state=>{return state.loggedIn});
+  let myDispatch = useDispatch();
   return (
    <Router>
+     <div>
+       <h1>The counter is {counter}</h1>
+   
+       <button onClick={()=>myDispatch(increment())}>+</button>
+       <button onClick={()=>myDispatch(decrement())}>-</button>
+       <button onClick={()=>myDispatch(loggedIn())}>Sign In</button>
+  
+       
+       </div>
+       
    <div >
+   {loggedInValue ?
       <ul>
         <li>
           <Link to="/posts">All Posts</Link>
@@ -26,6 +42,8 @@ function App() {
           <Link to="/courses">Course</Link>
         </li>
         </ul>
+        :'You are not looged In'
+   }
 <Switch>
         <Route exact path="/posts/" component={AllPosts}/>
         <Route path = "/basic" render={(props)=>(
