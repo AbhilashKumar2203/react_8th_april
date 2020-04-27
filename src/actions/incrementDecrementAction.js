@@ -17,3 +17,14 @@ export const loggedIn = ()=>{
     }
 }
 
+
+export const updateName = ()=>{
+    return {
+        type:'NAME',
+        payload:{
+            id:1,
+            name:'new Abhilash'
+        }
+    }
+}
+

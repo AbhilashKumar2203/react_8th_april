@@ -13,15 +13,18 @@ const FirstComponent = React.lazy(()=>(import('./component/firstComponent')));
 function App() {
   let counter = useSelector(state=>{return state.counter});
   let loggedInValue = useSelector(state=>{return state.loggedIn});
+  let updatedNameValue = useSelector(state=>{return state.updatedName.name});
   let myDispatch = useDispatch();
   return (
    <Router>
      <div>
        <h1>The counter is {counter}</h1>
-   
+    <h1>Updated Name is {updatedNameValue}</h1>
        <button onClick={()=>myDispatch(increment())}>+</button>
        <button onClick={()=>myDispatch(decrement())}>-</button>
        <button onClick={()=>myDispatch(loggedIn())}>Sign In</button>
+       <button onClick={()=>myDispatch(updateName())}>Update Name</button>
+
   
        
        </div>
